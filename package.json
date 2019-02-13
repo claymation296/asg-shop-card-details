@@ -1,0 +1,43 @@
+{
+  "name": "@spriteful/asg-shop-card-details",
+  "version": "1.1.0",
+  "description": "Mobile device sized full-screen layout for MTG cards",
+  "main": "asg-shop-card-details.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spriteful/asg-shop-card-details.git"
+  },
+  "author": "Spriteful spritefuldev@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spriteful/asg-shop-card-details/issues"
+  },
+  "homepage": "https://github.com/spriteful/asg-shop-card-details#readme",
+  "dependencies": {
+    "@polymer/iron-icon": "^3.0.1",
+    "@polymer/iron-image": "^3.0.1",
+    "@polymer/paper-fab": "^3.0.1",
+    "@polymer/paper-icon-button": "^3.0.2",
+    "@polymer/paper-input": "^3.0.1",
+    "@polymer/paper-ripple": "^3.0.1",
+    "@polymer/paper-toggle-button": "^3.0.1",
+    "@polymer/polymer": "^3.1.0",
+    "@spriteful/app-carousel": "^1.0.0",
+    "@spriteful/app-header-overlay": "^1.0.0",
+    "@spriteful/asg-icons": "^1.0.10",
+    "@spriteful/asg-shop-card-shared-elements": "^1.1.0",
+    "@spriteful/spriteful-element": "^1.0.4",
+    "@spriteful/utils": "^1.1.6"
+  },
+  "devDependencies": {
+    "@polymer/iron-demo-helpers": "^3.0.2",
+    "@polymer/test-fixture": "^4.0.2",
+    "@webcomponents/webcomponentsjs": "^2.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "wct-mocha": "^1.0.0"
+  }
+}

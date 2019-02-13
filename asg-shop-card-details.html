@@ -1,0 +1,219 @@
+
+<style>
+
+  :host {
+    display:             none;
+    --light-color:       var(--light-vibrant-color, var(--light-muted-color, var(--app-background-color)));
+    --dark-color:        var(--dark-vibrant-color, var(--dark-muted-color, var(--app-dark-color)));
+    --dark-fallback-rgb: 33, 33, 33;
+    --dark-rgba-color:   rgba(var(--dark-vibrant-rgb, var(--dark-muted-rgb, var(--dark-fallback-rgb))), 0.3);
+    --accent-color:      var(--vibrant-color, var(--muted-color, var(--app-accent-color)));
+    --light-text:        var(--dark-vibrant-title-color, var(--dark-muted-title-color, var(--light-text-color)));
+    --dark-text:         var(--light-vibrant-body-color, var(--light-muted-body-color, var(--dark-text-color)));
+    --accent-text:       var(--vibrant-title-color, var(--muted-title-color, white));
+  }
+
+  #overlay {
+    --overlay-background-color:         var(--light-color);
+    --overlay-toolbar-color:            var(--light-text);
+    --overlay-toolbar-background-color: rgba(0, 0, 0, 0);
+  }
+
+  #overlay.ios-fix {
+    --overlay-background-color:         var(--dark-color);
+    --overlay-toolbar-color:            var(--dark-color);
+    --overlay-toolbar-background-color: var(--dark-color);
+  }
+
+  #headerBackground {
+    position:         absolute;
+    top:              0px;
+    right:            0px;
+    bottom:           0px;
+    left:             0px;
+    z-index:         -1;
+    background-color: var(--dark-color);
+    color:            var(--light-text);
+    opacity:          0;
+    transition:       opacity 0.2s ease-in;
+  }
+
+  #content {
+    position:   relative;
+    min-height: 100vh;
+  }
+
+  #blurredImg {
+    position:          fixed;
+    top:              -2px; /*ios correction*/
+    left:              50%;    
+    height:            calc(200vw * 0.73125); /*mtg card aspect ratio*/
+    width:             200vw;
+    transform:         translateX(-50%);
+    background-size:   contain;
+    background-repeat: no-repeat;
+    background-color:  var(--dark-vibrant-color, var(--dark-muted-color, rgb(33, 33, 33)));
+    opacity:           0;
+    transition:        opacity 0.4s ease-in;
+  }
+
+  .blurred-img-standard {
+    top: 0px;
+  }
+
+  .blurred-img-fallback {
+    top: -20%;
+  }
+
+  #clear-wrapper {
+    position:         relative;
+    min-height:       150vh;
+    margin-bottom:   -128px; /*ios rubber band correction*/
+    background-image: linear-gradient(var(--safari-clear, rgba(255, 255, 255, 0)), var(--light-color) 50%);
+    overflow-x:       hidden; /* ios carousel swipe fix */
+  }
+
+  #carousel {
+    margin-top: 32px;
+  }
+
+  #controls {
+    --not-available-padding : 10px 0px 0px 0px;
+  }
+
+  .img-containers {
+    display:          flex;
+    justify-content:  center;
+    transform-origin: 0 0;
+  }
+
+  .main-imgs {
+    max-width:          672px;               /* natural width */
+    max-height:         936px;               /* natural height */
+    width:              calc(100vw - 128px); /* 64px gutters */
+    height:             calc((100vw - 128px) / 0.7179); /* 0.7179 = card aspect ratio */
+    --iron-image-width: 100%;
+    border-radius:      calc(4% + 1px);
+    overflow:           hidden;
+    background-clip:    border-box;
+    background-color:   var(--light-color);
+    transform-origin:   0 0;
+    box-shadow:         0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                        0 3px 14px 2px rgba(0, 0, 0, 0.12),
+                        0 5px 5px -3px rgba(0, 0, 0, 0.4);   
+  }
+ 
+  .heading {
+    font-size:   20px;
+    font-weight: bold;
+    color: 			 var(--dark-color);
+  }
+
+
+  #info {
+    padding:       16px;
+    margin-bottom: 128px;
+    color:         var(--dark-text);
+  }
+
+  #set {
+    --text-color:       		var(--dark-text);
+    --rarity-wrapper-align: end;
+    --rarity-text-size: 		18px;
+  }
+
+  #type-line {
+    margin-top: 16px;
+  }
+
+  .mana-icons {
+    width:  20px;
+    height: 20px;
+  }
+
+  #stats {
+    margin-top: 16px;
+  }
+
+  #flavor-text {
+    font-style: italic;
+  }  
+
+  #fab {
+    display:          none;
+    position:         fixed;
+    right:            16px;
+    bottom:           16px;
+    background-color: var(--accent-color);
+    color:            var(--accent-text);
+  }
+
+  .fab-exit {
+    transition: transform 0.2s ease-in;
+    transform:  scale(0, 0);
+  }
+
+  .fab-entry {
+    transition: transform 0.3s var(--spriteful-ease, cubic-bezier(0.49, 0.01, 0, 1));
+    transform:  scale(1, 1);
+  }
+
+</style>
+
+
+<app-header-overlay id="overlay"
+                          header-size="1"
+                          title="[[__computeCardFaceSafeProp(card, _face, 'name')]]"
+                          parent-controls-exits
+                          reset-scroll
+                          reveal-header
+                          threshold="64">
+  <div id="headerBackground" slot="header-background-slot"></div>
+
+  <div id="content" slot="content">
+    <div id="blurredImg" 
+         class$="blurred-img-standard [[__computeBlurredImgFallbackClass(card, _face)]]">
+    </div>
+
+    <div id="clear-wrapper">
+      <asg-shop-card-detail-carousel id="carousel" 
+                                     card="[[card]]">
+      </asg-shop-card-detail-carousel>
+
+      <asg-shop-card-controls id="controls" 
+                              card="[[card]]" 
+                              selector-from="left">
+      </asg-shop-card-controls>
+
+      <div id="info">        
+        <div class="heading">[[__computeCardFaceSafeProp(card, _face, 'name')]]</div>
+        <asg-shop-card-set id="set" 
+                           class="heading" 
+                           card="[[card]]">                             
+        </asg-shop-card-set>
+        <div id="type-line">[[__computeCardFaceSafeProp(card, _face, 'type_line')]]</div>
+        <div>
+          <template is="dom-repeat" items="[[__computeMagicManaIcons(_manaCost)]]">
+            <iron-icon class="mana-icons" src="[[item]]"></iron-icon>
+          </template>
+        </div>
+        <div id="stats">
+          <div hidden="[[!_power]]">Power: [[_power]]</div>
+          <div hidden="[[!_toughness]]">Toughness: [[_toughness]]</div>
+          <div hidden="[[!_loyalty]]">Loyalty: [[_loyalty]]</div>
+        </div>
+        <p hidden="[[!_oracleText]]">[[_oracleText]]</p>
+        <p id="flavor-text" hidden="[[!_flavorText]]">[[_flavorText]]</p>
+      </div>
+    </div>  
+      
+  </div>
+</app-header-overlay>
+
+<paper-fab id="fab" 
+           class="fab-exit"
+           icon="asg-icons:add-shopping-card"
+           on-click="__addToCardFabClicked">
+</paper-fab>
+
+<asg-shop-card-detail-animations id="animations"></asg-shop-card-detail-animations>

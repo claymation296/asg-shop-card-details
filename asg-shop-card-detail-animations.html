@@ -1,0 +1,163 @@
+
+<style>
+
+  .img-containers {
+    display:          flex;
+    justify-content:  center;
+    transform-origin: 0 0;
+  }
+
+  .main-imgs {
+    max-width:          672px;               /* natural width */
+    max-height:         936px;               /* natural height */
+    width:              calc(100vw - 128px); /* 64px gutters */
+    height:             calc((100vw - 128px) / 0.7179); /* 0.7179 = card aspect ratio */
+    --iron-image-width: 100%;
+    border-radius:      calc(4% + 1px);
+    overflow:           hidden;
+    background-clip:    border-box;
+    background-color:   var(--light-color);
+    transform-origin:   0 0;
+    box-shadow:         0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                        0 3px 14px 2px rgba(0, 0, 0, 0.12),
+                        0 5px 5px -3px rgba(0, 0, 0, 0.4);   
+  }
+
+  #animationOverlay {
+    position:   fixed;
+    top:        0px;
+    right:      0px;
+    bottom:     0px;
+    left:       0px;
+  }
+
+  #imgContainer {
+    position:   fixed; /*ios fix*/
+    left:       0px;   /*ios fix*/
+    right:      0px;   /*ios fix*/
+    margin-top: 96px;
+  }
+
+  @keyframes bounceInDown {
+    from,
+    25%,
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    25% {
+      transform: translate3d(0, 4px, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  #imgContainer.bounceInDown {
+    animation-name:     bounceInDown;
+    animation-duration: 0.3s;
+  }
+
+  @keyframes bounceInLeft {
+    from,
+    30%,
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    30% {
+      transform: translate3d(-4px, 0, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  #imgContainer.bounceInLeft {
+    animation-name:     bounceInLeft;
+    animation-duration: 0.3s;
+  }
+
+  @keyframes bounceInUp {
+    from,
+    15%,
+    to {
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    15% {
+      transform: translate3d(0, -6px, 0);
+    }
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  #imgContainer.bounceInUp {
+    animation-name:     bounceInUp;
+    animation-duration: 0.3s;
+  }
+
+  .ripples {
+    position:         fixed;
+    width:            250vmax;
+    height:           250vmax;
+    transition:       transform 0.6s var(--spriteful-ease, cubic-bezier(0.49, 0.01, 0, 1));
+    transform-origin: 50% 50%;
+    border-radius:    50%;
+    overflow:         hidden;
+    transform:        scale(0, 0);
+    opacity:          1;
+  }
+
+  .ripple-covers {
+    z-index: 10;
+  }
+
+  .explode-ripple {
+    transform: scale(1, 1);
+  }
+
+  .fade-out-ripple-transition {
+    transition: opacity 0.2s ease-in;
+  }
+
+  .fade-out-ripple {
+    opacity: 0;
+  }
+
+  #clickRipple {
+    background-color: var(--accent-color);
+  }
+
+  #imgRipple {
+    transition:       transform 0.7s var(--spriteful-ease, cubic-bezier(0.49, 0.01, 0, 1)), opacity 0.4s ease-in;
+    background-color: var(--dark-color);
+  }
+
+</style>
+
+
+<div id="animationOverlay">
+  <div id="clickRipple" class="ripples"></div>
+  <div id="imgRipple" class="ripples"></div>
+  <div id="imgContainer" 
+       class="img-containers" 
+       on-transitionend="__cardImgTransistionend">
+    <iron-image id="img"
+                class="main-imgs"
+                placeholder="[[__computePlaceholder(_card)]]" 
+                src="[[__computeSrc(_card)]]" 
+                sizing="cover"
+                on-error-changed="__ironImageError"
+                fade 
+                preload>
+    </iron-image>
+  </div>
+</div>
