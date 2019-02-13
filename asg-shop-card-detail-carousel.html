@@ -1,0 +1,120 @@
+
+<style>
+
+  :host {
+    display:         			 flex;
+    justify-content: 			 center;
+    --card-width: 				 calc(100vw - 128px);
+    --carousel-width: 		 calc(100vw - 96px);
+    --carousel-overflow-x: visible;
+    --carousel-height: 		 calc(var(--carousel-width) / 0.7179);
+  }
+
+  #carousel {
+    max-width:    672px;                         /* natural width */
+    max-height:   936px;                         /* natural height */
+    width:        var(--carousel-width);            /* 64px gutters and 32px between images */
+    height:       var(--carousel-height); /* - 90px gives room for carousel dots, 0.7179 = card aspect ratio */
+    z-index:      1; /* so image overlays content when zoomed */
+    display:      flex;
+    align-items:  flex-end;
+    --carousel-overflow-x:          var(--carousel-overflow-x);
+    --carousel-overflow-y:          visible;
+    --carousel-ui-color:            var(--accent-color);
+    --carousel-ui-background-color: var(--dark-rgba-color);    
+    --container-pointer-events:               none;
+  }
+
+  .img-wrapper {  
+    display:         inline-flex;
+    justify-content: center; 
+    position:        relative;
+    overflow-x:      visible; 
+    overflow-y:      visible;
+    align-items:     var(--align-card, unset);
+  }
+
+  .img-badges-container {
+    position:   relative;
+    max-width:  672px;               /* natural width */
+    max-height: 936px;               /* natural height */
+    width:      var(--card-width); /* 64px gutters */
+    height:     calc(var(--card-width) / 0.7179); /* 0.7179 = card aspect ratio */
+    transition: transform 0.4s var(--spriteful-ease, cubic-bezier(0.49, 0.01, 0, 1)), opacity 0.2s ease-in;
+  }
+
+  .imgs {
+    height:             100%;
+    width:              100%;
+    --iron-image-width: 100%;
+    overflow-x:         hidden;
+    overflow-y:         visible;
+    border-radius:      calc(4% + 1px);
+    background-clip:    border-box;
+    background-color:   var(--light-color);
+    pointer-events:     auto;
+    box-shadow:         0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                        0 3px 14px 2px rgba(0, 0, 0, 0.12),
+                        0 5px 5px -3px rgba(0, 0, 0, 0.4);   
+  }
+
+  .badges {
+    transition: opacity 0.2s ease-in;
+    opacity:    0;
+  }
+
+  .badges[hidden] {
+    display: none;
+  }
+
+  .show-badges {
+    opacity: 1;
+  }
+
+  .rotate-btns {
+    position:       absolute;
+    bottom:         20px;
+    right:          -12px;
+    pointer-events: auto;
+    color:          var(--dark-color);
+    transition:     transform 0.5s var(--spriteful-ease, cubic-bezier(0.49, 0.01, 0, 1)), opacity 0.2s ease-in;
+    transform:      rotate(-30deg);
+    opacity:        0;
+  }
+
+  .enter-rotate-btns {
+    transform: none;
+    opacity:   1;
+  }
+
+</style>
+
+
+<app-carousel id="carousel" dots="[[_showDots]]">
+  <template is="dom-repeat" 
+            items="[[_lazyCarouselImages]]" 
+            on-dom-change="__carouselRepeaterDomChange">
+    <div class="img-wrapper">
+      <div class="img-badges-container">
+        <iron-image class="imgs"
+                    fade
+                    on-click="__imgClicked"
+                    placeholder="[[item.placeholder]]" 
+                    preload
+                    sizing="cover"
+                    src="[[item.src]]"
+                    on-error-changed="__ironImageError">
+        </iron-image>
+        <asg-shop-card-badges class="badges" 
+                              card="[[card]]" 
+                              hidden="[[__computeBadgeHidden(index)]]">
+        </asg-shop-card-badges>
+      </div>
+      <paper-icon-button class="rotate-btns"
+                         hidden="[[!item.rotate]]"
+                         icon="asg-icons:rotate-right"
+                         on-click="__rotateBtnClicked">
+      </paper-icon-button>
+    </div>
+  </template>
+</app-carousel>
