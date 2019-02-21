@@ -106,9 +106,8 @@
   .heading {
     font-size:   20px;
     font-weight: bold;
-    color: 			 var(--dark-color);
+    color:       var(--dark-color);
   }
-
 
   #info {
     padding:       16px;
@@ -117,9 +116,9 @@
   }
 
   #set {
-    --text-color:       		var(--dark-text);
+    --text-color:           var(--dark-text);
     --rarity-wrapper-align: end;
-    --rarity-text-size: 		18px;
+    --rarity-text-size:     18px;
   }
 
   #type-line {
@@ -162,12 +161,12 @@
 
 
 <app-header-overlay id="overlay"
-                          header-size="1"
-                          title="[[__computeCardFaceSafeProp(card, _face, 'name')]]"
-                          parent-controls-exits
-                          reset-scroll
-                          reveal-header
-                          threshold="64">
+                    header-size="1"
+                    title="[[__computeCardFaceSafeProp(card, _face, 'name')]]"
+                    parent-controls-exits
+                    reset-scroll
+                    reveal-header
+                    threshold="64">
   <div id="headerBackground" slot="header-background-slot"></div>
 
   <div id="content" slot="content">
@@ -212,7 +211,7 @@
 
 <paper-fab id="fab" 
            class="fab-exit"
-           icon="asg-icons:add-shopping-card"
+           icon="app-icons:add-shopping-cart"
            on-click="__addToCardFabClicked">
 </paper-fab>
 
