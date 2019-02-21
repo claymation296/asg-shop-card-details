@@ -38,10 +38,10 @@ import htmlString from './asg-shop-card-details.html';
 import manaIcons  from '@spriteful/asg-shop-card-shared-elements/asg-mana-icons.json';
 import './asg-shop-card-detail-animations.js';
 import './asg-shop-card-detail-carousel.js';
+import '@spriteful/app-icons/app-icons.js';
+import '@spriteful/app-header-overlay/app-header-overlay.js';
 import '@spriteful/asg-shop-card-shared-elements/asg-shop-card-set.js';
 import '@spriteful/asg-shop-card-shared-elements/asg-shop-card-controls.js';
-import '@spriteful/asg-icons/asg-icons.js';
-import '@spriteful/app-header-overlay/app-header-overlay.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/paper-fab/paper-fab.js';
 
