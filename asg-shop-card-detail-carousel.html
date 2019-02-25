@@ -2,12 +2,11 @@
 <style>
 
   :host {
-    display:         			 flex;
-    justify-content: 			 center;
-    --card-width: 				 calc(100vw - 128px);
-    --carousel-width: 		 calc(100vw - 96px);
-    --carousel-overflow-x: visible;
-    --carousel-height: 		 calc(var(--carousel-width) / 0.7179);
+    display:               flex;
+    justify-content:       center;
+    --card-width:          calc(100vw - 128px);
+    --carousel-width:      calc(100vw - 96px);
+    --carousel-height:     calc(var(--carousel-width) / 0.7179);
   }
 
   #carousel {
@@ -18,7 +17,7 @@
     z-index:      1; /* so image overlays content when zoomed */
     display:      flex;
     align-items:  flex-end;
-    --carousel-overflow-x:          var(--carousel-overflow-x);
+    --carousel-overflow-x:          visible;
     --carousel-overflow-y:          visible;
     --carousel-ui-color:            var(--accent-color);
     --carousel-ui-background-color: var(--dark-rgba-color);    
