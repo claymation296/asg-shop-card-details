@@ -1,6 +1,6 @@
 {
   "name": "@spriteful/asg-shop-card-details",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Mobile device sized full-screen layout for MTG cards",
   "main": "asg-shop-card-details.js",
   "scripts": {
