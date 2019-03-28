@@ -187,10 +187,10 @@
     "@polymer/iron-validatable-behavior" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/iron-demo-helpers@^3.0.2":
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/@polymer/iron-demo-helpers/-/iron-demo-helpers-3.0.2.tgz#ba2503555b6166e75016e072f357cee15b44b03c"
-  integrity sha512-VqGEIOEXPgx9G6uLfvnzXVib6sE6lJENV3gywoBTstrMCrFCSGpmTMVAovpHyoDw8Ceu6LeoVuMsxaT1mCEirg==
+"@polymer/iron-demo-helpers@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@polymer/iron-demo-helpers/-/iron-demo-helpers-3.1.0.tgz#89dbbc019f9200331d77c94144d8afc9920dc122"
+  integrity sha512-C+U9ghRnjluJNLIga7r30YGNuQeCu7E7mOOcjgWOL/bMfWvrnbr2TcYoO4DXHO6NdUfV6daGtRA1VwG3d8H39g==
   dependencies:
     "@polymer/font-roboto" "^3.0.0-pre.25"
     "@polymer/iron-flex-layout" "^3.0.0-pre.25"
@@ -382,6 +382,13 @@
   dependencies:
     "@webcomponents/shadycss" "^1.5.2"
 
+"@polymer/polymer@^3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.2.0.tgz#b41fddec4ecac63b12936b93726678d23add7afd"
+  integrity sha512-L6uV1oM6T6xbwbVx6t3biG5T2VSSB03LxnIrUd9M2pr6RkHVPFHJ37pC5MUwBAEhkGFJif7eks7fdMMSGZTeEQ==
+  dependencies:
+    "@webcomponents/shadycss" "^1.8.0"
+
 "@polymer/prism-element@^3.0.0-pre.25":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@polymer/prism-element/-/prism-element-3.0.1.tgz#b35d53eec9ecea5e5fec7c82c7e978e760e53501"
@@ -436,23 +443,23 @@
   dependencies:
     "@polymer/iron-iconset-svg" "^3.0.1"
 
-"@spriteful/asg-icons@^1.0.12":
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/@spriteful/asg-icons/-/asg-icons-1.0.12.tgz#d4e697b0febc6c3a6f50ec0744a403773a70103c"
-  integrity sha512-+TjRI8bwC7k8LVpHVdJSdtwbFc54ty+k6UwXVLk7CMcLO5OpwBxi/eQX9+rXM8u5Hum89YpNJWqerhzaGDymjw==
+"@spriteful/asg-icons@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@spriteful/asg-icons/-/asg-icons-1.0.13.tgz#56db44c348a37ddd3393cca23389ffd0157c4b81"
+  integrity sha512-8joMbh5KbTSKf+m8yJaIWa+zw4lSg/cTdynRgLMH0uuWjXAD11XrNC8+xBoibDpBCgQnaVO9XnAAJzgge1bjuQ==
   dependencies:
     "@polymer/iron-iconset-svg" "^3.0.1"
     "@polymer/polymer" "^3.1.0"
 
-"@spriteful/asg-shop-card-shared-elements@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@spriteful/asg-shop-card-shared-elements/-/asg-shop-card-shared-elements-1.1.2.tgz#57cc99ab27b117b24b2e182e610f10dcc8fd12a5"
-  integrity sha512-zJheLNcRfWbAncE83H4srBrgHCdr0gMzUx+6muVE1L00KugQ9OhhVBMNUMXqUY91VSN6uJPnfEBX1ENBjBMBIQ==
+"@spriteful/asg-shop-card-shared-elements@^1.1.3":
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/@spriteful/asg-shop-card-shared-elements/-/asg-shop-card-shared-elements-1.1.3.tgz#e02c4bae64865820d5f9f8c1e31bd2df66be990d"
+  integrity sha512-yOaCLTyKjJMbZC+G9NWQaP/nFxQXqme8pF34pZq1uKXoNrWKx3q29lZwhU8aSfgIMoJORCHYaMUWoNSE97XaZA==
   dependencies:
     "@polymer/iron-icon" "^3.0.1"
     "@polymer/iron-iconset-svg" "^3.0.1"
     "@polymer/iron-selector" "^3.0.1"
-    "@spriteful/lambda" "^1.3.4"
+    "@spriteful/lambda" "^1.3.5"
     "@spriteful/services" "^2.1.3"
     "@spriteful/spriteful-element" "^1.0.4"
     "@spriteful/utils" "^1.2.1"
@@ -466,6 +473,11 @@
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/@spriteful/lambda/-/lambda-1.3.4.tgz#1f2110ee41e39f3b19f1e64b7acc689c7930a783"
   integrity sha512-+o9/2iq6wA1E4DlUPKUeH9GS7ow3uP/w2bHs4vN8aZlr+e+a3G9sppjl55eIZBCNMQOi9756beGyO0VgU3fcxQ==
+
+"@spriteful/lambda@^1.3.5":
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/@spriteful/lambda/-/lambda-1.3.5.tgz#14cef52aff8144ab1af6cdd500debb8daddf4564"
+  integrity sha512-e3lnmVRce1bO6Ygw3V+rmKZGog2+OyEJYmC9h/p0vO63Y8alqY+VFbowkvYl7PJUCo+AlqLm9GrdPbAQTn+KrQ==
 
 "@spriteful/overlay-mixin@^1.0.0":
   version "1.0.0"
@@ -532,7 +544,7 @@
     comlinkjs "^3.1.1"
     firebase "^5.7.2"
 
-"@webcomponents/shadycss@^1.5.2":
+"@webcomponents/shadycss@^1.5.2", "@webcomponents/shadycss@^1.8.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.9.0.tgz#8450465037370d4f5c32e801bb2554a7cf2f5037"
   integrity sha512-g8Xa+6RSEME4g/wLJW4YII0eq15rvXp76RxPAuv7hx+Bdoi7GzZJ/EoZOUfyIbqAsQbII1TcWD4/+Xhs5NcM1w==
