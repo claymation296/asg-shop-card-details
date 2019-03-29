@@ -65,6 +65,24 @@
     top: -20%;
   }
 
+  #blurredImg::after {
+    content:  '';
+    position: absolute;
+    top:      0px;
+    bottom:   0px;
+    left:     0px;
+    right:    0px;
+    background-image: linear-gradient(
+      to bottom, 
+      var(--safari-clear, rgba(0, 0, 0, 0)), 
+      var(--light-color) 70%
+    ), radial-gradient(
+      ellipse at bottom, 
+      var(--safari-clear, rgba(0, 0, 0, 0)), 
+      var(--dark-vibrant-color, rgb(33, 33, 33)) 90%
+    );
+  }
+
   #clear-wrapper {
     position:         relative;
     min-height:       150vh;
