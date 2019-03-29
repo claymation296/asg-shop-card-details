@@ -211,17 +211,8 @@ class ASGShopCardDetails extends AsgShopCardMixin(SpritefulElement) {
   async __cardImgChanged(uris, faces, face) {
     try {
       if (!uris && !faces) { 
-        this.$.blurredImg.style.opacity = '1';
-        this.$.blurredImg.style.backgroundImage = 
-          `linear-gradient(
-             to bottom, 
-             var(--safari-clear, rgba(0, 0, 0, 0)), 
-             var(--light-color) 70%),
-           radial-gradient(
-             ellipse at bottom, 
-             var(--safari-clear, rgba(0, 0, 0, 0)), 
-             var(--dark-vibrant-color, rgb(33, 33, 33)) 90%),       
-           url(#)`;
+        this.$.blurredImg.style.opacity         = '1';
+        this.$.blurredImg.style.backgroundImage = 'url(#)';
         return; 
       }
       const {art_crop, small} = faces && !uris ? 
@@ -234,17 +225,8 @@ class ASGShopCardDetails extends AsgShopCardMixin(SpritefulElement) {
         await schedule();
         this.$.blurredImg.style.opacity = '1';
       };
-      this.$.blurredImg.style.opacity = '0';
-      this.$.blurredImg.style.backgroundImage = 
-        `linear-gradient(
-           to bottom, 
-           var(--safari-clear, rgba(0, 0, 0, 0)), 
-           var(--light-color) 70%),
-         radial-gradient(
-           ellipse at bottom, 
-           var(--safari-clear, rgba(0, 0, 0, 0)), 
-           var(--dark-vibrant-color, rgb(33, 33, 33)) 90%),       
-         url(${src})`;
+      this.$.blurredImg.style.opacity         = '0';
+      this.$.blurredImg.style.backgroundImage = `url(${src})`;
     }
     catch (error) {
       console.error(error);
