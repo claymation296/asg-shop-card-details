@@ -28,7 +28,7 @@
     "@spriteful/app-carousel": "^1.0.1",
     "@spriteful/app-header-overlay": "^1.0.1",
     "@spriteful/asg-icons": "^1.0.14",
-    "@spriteful/asg-shop-card-shared-elements": "^1.1.5",
+    "@spriteful/asg-shop-card-shared-elements": "^1.1.7",
     "@spriteful/spriteful-element": "^1.0.4",
     "@spriteful/utils": "^1.2.4"
   },
