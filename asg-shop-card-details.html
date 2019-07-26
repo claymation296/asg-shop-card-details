@@ -154,7 +154,12 @@
 
   #flavor-text {
     font-style: italic;
-  }  
+  }
+
+  asg-shop-sold-out-label {
+    position:      fixed;
+    border-radius: 0px;
+  }
 
   #fab {
     display:          none;
@@ -185,6 +190,7 @@
                     reset-scroll
                     reveal-header
                     threshold="64">
+
   <div id="headerBackground" slot="header-background-slot"></div>
 
   <div id="content" slot="content">
@@ -222,7 +228,11 @@
         <p hidden="[[!_oracleText]]">[[_oracleText]]</p>
         <p id="flavor-text" hidden="[[!_flavorText]]">[[_flavorText]]</p>
       </div>
-    </div>  
+    </div>    
+
+    <asg-shop-sold-out-label buylist="[[buylist]]" 
+                             card="[[card]]">
+    </asg-shop-sold-out-label>  
       
   </div>
 </app-header-overlay>
