@@ -430,6 +430,13 @@
   dependencies:
     "@webcomponents/shadycss" "^1.8.0"
 
+"@polymer/polymer@^3.3.0":
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@polymer/polymer/-/polymer-3.3.0.tgz#52a0665ac29654728e8f46e8ee178c02c49efdd0"
+  integrity sha512-rij7suomS7DxdBamnwr/Xa0V5hpypf7I9oYKseF2FWz5Xh2a3wJNpVjgJy1adXVCxqIyPhghsrthnfCt7EblsQ==
+  dependencies:
+    "@webcomponents/shadycss" "^1.9.1"
+
 "@polymer/prism-element@^3.0.0-pre.25":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@polymer/prism-element/-/prism-element-3.0.1.tgz#b35d53eec9ecea5e5fec7c82c7e978e760e53501"
@@ -559,10 +566,10 @@
     "@polymer/iron-iconset-svg" "^3.0.1"
     "@polymer/polymer" "^3.2.0"
 
-"@spriteful/asg-shop-card-shared-elements@^1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@spriteful/asg-shop-card-shared-elements/-/asg-shop-card-shared-elements-1.1.7.tgz#549495cfb1d477fcc20394b510924a2806a0f09e"
-  integrity sha512-1qLvcSx+o1uMLCrUoTOGqB+H8mNon1UHjtD4ztVjrXi2WCwmIT+FtpR4/N/1HZFb13yqk1L4zUNfw83Ob7bMnQ==
+"@spriteful/asg-shop-card-shared-elements@^1.1.10":
+  version "1.1.10"
+  resolved "https://registry.yarnpkg.com/@spriteful/asg-shop-card-shared-elements/-/asg-shop-card-shared-elements-1.1.10.tgz#f35993adba276795527a50aec0bb58040160d754"
+  integrity sha512-wKCAuoY+n+8OKB2jKJe+VvQztD1SmpnIZ2MhclsOoOQF1BhLShN8J7WLRF44R/OoiatKb6Yz4X4j22/R4SgPQw==
   dependencies:
     "@polymer/iron-icon" "^3.0.1"
     "@polymer/iron-iconset-svg" "^3.0.1"
@@ -678,6 +685,11 @@
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.9.0.tgz#8450465037370d4f5c32e801bb2554a7cf2f5037"
   integrity sha512-g8Xa+6RSEME4g/wLJW4YII0eq15rvXp76RxPAuv7hx+Bdoi7GzZJ/EoZOUfyIbqAsQbII1TcWD4/+Xhs5NcM1w==
+
+"@webcomponents/shadycss@^1.9.1":
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/@webcomponents/shadycss/-/shadycss-1.9.1.tgz#d769fbadfa504f11b84caeef26701f89070ec49a"
+  integrity sha512-IaZOnWOKXHghqk/WfPNDRIgDBi3RsVPY2IFAw6tYiL9UBGvQRy5R6uC+Fk7qTZsReTJ0xh5MTT8yAcb3MUR4mQ==
 
 "@webcomponents/webcomponentsjs@^2.2.10":
   version "2.2.10"
@@ -1423,10 +1435,10 @@ mkdirp@0.5.1, mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-mocha@^6.1.4:
-  version "6.1.4"
-  resolved "https://registry.yarnpkg.com/mocha/-/mocha-6.1.4.tgz#e35fada242d5434a7e163d555c705f6875951640"
-  integrity sha512-PN8CIy4RXsIoxoFJzS4QNnCH4psUCPWc4/rPrst/ecSJJbLBkubMiyGCP2Kj/9YnWbotFqAoeXyXMucj7gwCFg==
+mocha@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.yarnpkg.com/mocha/-/mocha-6.2.0.tgz#f896b642843445d1bb8bca60eabd9206b8916e56"
+  integrity sha512-qwfFgY+7EKAAUAdv7VYMZQknI7YJSGesxHyhn6qD52DV8UcSZs5XwCifcZGMVIE4a5fbmhvbotxC0DLQ0oKohQ==
   dependencies:
     ansi-colors "3.2.3"
     browser-stdout "1.3.1"

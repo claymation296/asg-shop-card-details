@@ -42,6 +42,7 @@ import '@spriteful/app-icons/app-icons.js';
 import '@spriteful/app-header-overlay/app-header-overlay.js';
 import '@spriteful/asg-shop-card-shared-elements/asg-shop-card-set.js';
 import '@spriteful/asg-shop-card-shared-elements/asg-shop-card-controls.js';
+import '@spriteful/asg-shop-card-shared-elements/asg-shop-sold-out-label.js';
 import '@polymer/iron-icon/iron-icon.js';
 import '@polymer/paper-fab/paper-fab.js';
 
@@ -55,7 +56,12 @@ class ASGShopCardDetails extends AsgShopCardMixin(SpritefulElement) {
 
 
   static get properties() {
-    return {     
+    return {
+
+      buylist: {
+        type: Boolean,
+        value: false
+      }, 
 
       _animationBusy: {
         type: Boolean,
